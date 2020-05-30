@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "FruitEGO"
+    }
+  },
+  "defaultProject": "FruitEGO",
+  "cli": {
+    "analytics": "99725f81-2aa1-40d2-aa0d-0a742e0c08ac"
+  }
 }
