@@ -1,3 +1,4 @@
+import { TestService } from './test.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -7,6 +8,8 @@ import { HeaderComponent } from './component/header/header.component';
 import { CarouselComponent } from './component/carousel/carousel.component';
 import { SiderbarComponent } from './component/siderbar/siderbar.component';
 import { HomeComponent } from './page/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -18,9 +21,10 @@ import { HomeComponent } from './page/home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
