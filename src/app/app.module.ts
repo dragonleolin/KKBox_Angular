@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [TestService],
+  providers: [TestService], // 在providers中加入TestService
   bootstrap: [AppComponent]
 })
 export class AppModule { }

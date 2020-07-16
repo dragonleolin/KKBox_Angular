@@ -6,9 +6,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TestService {
   constructor(private http: HttpClient) {}
+
   send() {
-    this.http.get('http://127.0.0.1:3001/get').subscribe((data) => {
-      console.log('data:', data);
+    this.http.get('http://127.0.0.1:3001/get').subscribe({
+      next(value){
+        console.log('value',value);
+      },
+      error(error){
+        console.log('error',error);
+      },
+      complete(){
+        console.log('success');
+      }
     });
   }
 
@@ -31,10 +40,13 @@ export class TestService {
           Authorization: `Bearer ` + this.token
         },
       })
-      .subscribe(async (res) => {
-        console.log(2, res);
-        return res;
+      .subscribe({
+        next(value){
+          console.log('value',value);
+        },
       });
+      console.log('3');
+      
   };
 
   getYTData = () => {
@@ -49,6 +61,7 @@ export class TestService {
       )
       .subscribe((res) => {
         console.log(5, res);
+        
       });
   };
 }
