@@ -77,11 +77,42 @@ const corsOptions = {
 var express = require('express');
 var cors = require('cors');
 var app = express();
+const axios = require('axios');
 app.use(cors(corsOptions));
 
+// const url = 'https://account.kkbox.com/oauth2/token';
+//     axios.post(
+//         url,
+//         {
+//             grant_type: 'client_credentials',
+//             client_id: '99598334258d3f35aa01f439d81273c2',
+//             client_secret: '8d4dd4b5143120c784fd9c22c888a5b7'
+//         },
+//         {
+//             headers: {
+//                 'Content-Type': 'application/x-www-form-urlencoded'
+//             }
+//         }
+//     ).then(token => {
+//         console.log('token', token);
+
+//     })
+//         .catch(function (error) {
+//             // handle error
+//             console.log(error);
+//         })
+
+const token = 'a_V9cDy4Fm6yudjCRHN2cg=='
+
 app.post('/post', function (req, res, next) {
+
     console.log('posts');
     res.json(dummyData)
+});
+
+app.post('/oauth2/token', function (req, res, next) {
+
+
 });
 
 app.get('/get', function (req, res, next) {

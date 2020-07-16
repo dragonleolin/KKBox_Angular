@@ -12,10 +12,14 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getData();
+    console.log('123', this.getData());
+
   }
 
   getData(){
-    this.testService.send();
+    this.testService.getNewHitPlayLists();
   }
+
+
 
 }
