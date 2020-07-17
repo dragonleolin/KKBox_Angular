@@ -4,48 +4,21 @@
     <app-header></app-header>
     <app-carousel></app-carousel>
     </div>
-    <div class="home_main d-flex" style="height: 80%;">
-      <nav id="navbar-example3" class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <nav class="nav nav-pills flex-column">
-          <a class="nav-link" href="#item-1">Item 1</a>
-          <a class="nav-link" href="#item-2">Item 2</a>
-          <a class="nav-link" href="#item-3">Item 3</a>
-        </nav>
-      </nav>
-      <div class="card" style="width: 18rem; height: 18rem;">
-        <img src="..." class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
+    <div className="homeMain_wrap" style="cursor: pointer">
+      <section>
+      <h2  style="text-align: center">馬上到熱門歌單聽歌</h2>
+          <div className="playLists" >
+            <ul *ngFor="let item of datas ;index as i">
+              <li>{{item.title}}</li>
+            </ul>
+                  <div className="item" style="margin: 20px">
+                          <img src="https://i.kfs.io/playlist/global/26541395v377/cropresize/300x300.jpg"/>
+                          <div style="text-align: center; margin: 20px; font-size: 18px">
+                              test
+                          </div>
+                  </div>
+          </div>
+      </section>
+  </div>
   </div>
 </div>
