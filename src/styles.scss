@@ -70,31 +70,44 @@ $phones-media:479px;
 
 .homeMain_wrap{
    @extend .linear;
-
+  border: 1px solid #000;
+   
     .playLists{
         display: flex;
-        justify-content: center;
-
+        flex-direction: row;
+        margin-bottom: 60px;
+        opacity: 0.7;
 
         .item{
-            // border: 1px solid #000;
-            width: 15%;
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
 
+            h3{
+              margin: 15px 0;
+              padding: 20px 10px;
+            }
+
+            .title{
+              text-align: center;
+              font-size: $title;
+              margin: 30px 0;
+            }
+            
 
             img{
                 display: block;
                 width: 100%;
                 height: 30vh;
                 max-width: 100%;
-	            max-height: 100%;
+                max-height: 100%;
             }
         }
 
-        @include phone-width{
-
-          }
-
-
     }
 }
+
+
+
+
 

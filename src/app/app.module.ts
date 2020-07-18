@@ -9,6 +9,7 @@ import { CarouselComponent } from './component/carousel/carousel.component';
 import { SiderbarComponent } from './component/siderbar/siderbar.component';
 import { HomeComponent } from './page/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { YoutubePageComponent } from './page/youtube-page/youtube-page.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     CarouselComponent,
     SiderbarComponent,
-    HomeComponent
+    HomeComponent,
+    YoutubePageComponent
   ],
   imports: [
     BrowserModule,

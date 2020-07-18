@@ -1,24 +1,22 @@
 <div class="home_body">
   <div class="d-flex flex-column">
     <div class="d-flex flex-column" style="height: 20%;">
-    <app-header></app-header>
-    <app-carousel></app-carousel>
+      <app-header></app-header>
+      <!-- <app-carousel></app-carousel> -->
     </div>
-    <div className="homeMain_wrap" style="cursor: pointer">
-      <section>
-      <h2  style="text-align: center">馬上到熱門歌單聽歌</h2>
-          <div className="playLists" >
-            <ul *ngFor="let item of datas ;index as i">
-              <li>{{item.title}}</li>
-            </ul>
-                  <div className="item" style="margin: 20px">
-                          <img src="https://i.kfs.io/playlist/global/26541395v377/cropresize/300x300.jpg"/>
-                          <div style="text-align: center; margin: 20px; font-size: 18px">
-                              test
-                          </div>
-                  </div>
+    <div class="homeMain_wrap" style="cursor: pointer;">
+      <h2 style="text-align: center; margin: 30px;">馬上到熱門歌單聽歌</h2>
+      <div class="playLists">
+        <div class="item" *ngFor="let item of datas; index as i">
+          <div class="card">
+            <div class="title">
+              {{ item.title }}
+            </div>
+            <img src="{{ item.images[0].url }}" alt="{{ item.description }}" />
+            <h3>{{ item.description }}</h3>
           </div>
-      </section>
-  </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

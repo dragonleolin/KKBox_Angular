@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './page/home/home.component';
+import { YoutubePageComponent } from './page/youtube-page/youtube-page.component';
 
 
 const routes: Routes = [
@@ -12,10 +13,10 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'home',
+        redirectTo: 'youtubePage',
       }, /**空白會跳轉到home */
       { path: 'home', component: HomeComponent },
-      // { path: 'examples', component: ExamplesComponent },
+      { path: 'youtubePage', component: YoutubePageComponent },
       // { path: 'page', component: PageComponent },
       // { path: 'anther', component: AntherComponent },
       // { path: 'contacts', component: ContactComponent },
