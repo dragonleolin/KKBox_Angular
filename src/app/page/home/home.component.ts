@@ -1,6 +1,7 @@
 import { TestService } from './../../test.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,19 @@ export class HomeComponent implements OnInit {
   //   return this.testService.getNewHitPlayLists();
   // }
 
+  albumId;
+
   datas: any[] = [];
+
+  
+
+  onClickalbumId(id: string){
+    // this.albumId = id;
+    // console.log('albumId1:',this.albumId);
+    
+    this.testService.getAlbumId(id);
+    window.location.href="/youtubePage";
+  }
 
   //取得每周熱門歌曲排行封面
   getNewHitPlayLists = async () => {

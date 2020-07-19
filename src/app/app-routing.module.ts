@@ -5,15 +5,15 @@ import { YoutubePageComponent } from './page/youtube-page/youtube-page.component
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'page' }, /**空白會跳轉到home */
+  // { path: '', pathMatch: 'full', redirectTo: 'page' }, /**空白會跳轉到home */
 
   {
-    path: 'page',
+    path: '',
     children: [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'youtubePage',
+        redirectTo: 'home',
       }, /**空白會跳轉到home */
       { path: 'home', component: HomeComponent },
       { path: 'youtubePage', component: YoutubePageComponent },

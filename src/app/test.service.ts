@@ -1,11 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subject, ReplaySubject  } from 'rxjs';
+import{BehaviorSubject }from "rxjs";
 
 @Injectable({
   providedIn: 'root',
 })
 export class TestService {
   constructor(private http: HttpClient) {}
+
+  getId:string;
+  albumId$ = new BehaviorSubject<string>(this.getId);
+  // albumId$ = new Subject();
+
+  
+  getAlbumId(id:string){
+    console.log('getAlbumId:', id);
+      this.getId = id;
+      
+      console.log('getAlbumId2:', this.getId);
+      this.albumId$.next(this.getId);
+  }
 
   send() {
     this.http.get('http://127.0.0.1:3001/get').subscribe({
