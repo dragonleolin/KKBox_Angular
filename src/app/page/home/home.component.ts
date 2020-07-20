@@ -1,7 +1,7 @@
 import { TestService } from './../../test.service';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +9,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private testService: TestService, private http: HttpClient) {}
-  ngOnInit(){
+  constructor(
+    private testService: TestService,
+    private http: HttpClient,
+    private router: Router
+  ) {}
+  ngOnInit() {
     // this.getData();
     // console.log('123', this.getData());
     this.getNewHitPlayLists();
-    
   }
 
   // getData(){
@@ -25,14 +28,10 @@ export class HomeComponent implements OnInit {
 
   datas: any[] = [];
 
-  
-
-  onClickalbumId(id: string){
-    // this.albumId = id;
-    // console.log('albumId1:',this.albumId);
-    
-    this.testService.getAlbumId(id);
-    window.location.href="/youtubePage";
+  onClickalbumId(id: string) {
+    this.testService.setAlbumId(id);
+    this.router.navigateByUrl('/youtubePage/?id=' + id);
+    //window.location.href="/youtubePage";
   }
 
   //取得每周熱門歌曲排行封面
@@ -45,10 +44,10 @@ export class HomeComponent implements OnInit {
           Authorization: `Bearer ` + token,
         },
       })
-      .subscribe((value)=>{
-          this.datas =[value];
-          this.datas = this.datas[0].data;
-          console.log(' this.datas1', this.datas);
-        });
-  }
+      .subscribe((value) => {
+        this.datas = [value];
+        this.datas = this.datas[0].data;
+        console.log(' this.datas1', this.datas);
+      });
+  };
 }

@@ -1,38 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject, ReplaySubject  } from 'rxjs';
-import{BehaviorSubject }from "rxjs";
+import { Subject, ReplaySubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TestService {
-  constructor(private http: HttpClient) {}
+  getId = '123';
+  // albumId$ = new BehaviorSubject<string>(this.getId);
 
-  getId:string;
-  albumId$ = new BehaviorSubject<string>(this.getId);
-  // albumId$ = new Subject();
+  constructor(private http: HttpClient) {
+    console.log('我重整了，不要拿我存狀態');
+  }
 
-  
-  getAlbumId(id:string){
-    console.log('getAlbumId:', id);
-      this.getId = id;
-      
-      console.log('getAlbumId2:', this.getId);
-      this.albumId$.next(this.getId);
+  setAlbumId(id: string) {
+    this.getId = id;
+    console.log('已設定');
+  }
+
+  getAlbumId() {
+    return this.getId;
   }
 
   send() {
     this.http.get('http://127.0.0.1:3001/get').subscribe({
-      next(value){
-        console.log('value',value);
+      next(value) {
+        console.log('value', value);
       },
-      error(error){
-        console.log('error',error);
+      error(error) {
+        console.log('error', error);
       },
-      complete(){
+      complete() {
         console.log('success');
-      }
+      },
     });
   }
 
@@ -45,23 +46,21 @@ export class TestService {
   // token = 'a_V9cDy4Fm6yudjCRHN2cg==';
   token = 'EyjKXVYDMXO3L_jnrCIsfQ==';
 
-
   //取得每周熱門歌曲排行封面
   getNewHitPlayLists = async () => {
     console.log(1, this.token);
     await this.http
       .get('https://api.kkbox.com/v1.1/new-hits-playlists?territory=TW', {
         headers: {
-          Authorization: `Bearer ` + this.token
+          Authorization: `Bearer ` + this.token,
         },
       })
       .subscribe({
-        next(value){
-          console.log('value',value);
+        next(value) {
+          console.log('value', value);
         },
       });
-      console.log('3');
-      
+    console.log('3');
   };
 
   getYTData = () => {
@@ -76,7 +75,6 @@ export class TestService {
       )
       .subscribe((res) => {
         console.log(5, res);
-        
       });
   };
 }
