@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TestService } from './../../test.service';
 import { HttpClient } from '@angular/common/http';
 import { RouterLinkActive, Router, ActivatedRoute } from '@angular/router';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-youtube-page',
@@ -12,36 +13,39 @@ export class YoutubePageComponent implements OnInit {
   token = this.testService.token;
   datas: any;
   YTId: any;
-  // youtube='https://www.youtube.com/embed/';
-  albumId;
+  youtubeUrl: string = "https://www.youtube.com/embed/Fllk9zr9iM8";
+  getId;
+  getTitle;
+  urlSafe: SafeResourceUrl;
+
+
   constructor(
     private testService: TestService,
     private http: HttpClient,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    public sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
+    this.testService.albumId$.subscribe(res=>{
+      this.getId = res.id;
+      this.getTitle = res.title;
+    });
     this.getInitData();
+    this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.youtubeUrl);
 
 
-    console.log('testt', this.route.snapshot.params['id']);
-    this.testService.getAlbumId();
-    this.route.snapshot.params['id'];
-    //   console.log('albumId$', res);
+  }
 
-    //   this.albumId = res;
-    //   console.log('albumId2=', this.albumId);
-    // });
+  getHomeData(){
+
   }
 
   getInitData = () => {
-    console.log('testt', this.route.snapshot.params['id']);
-    console.log('token:', this.token);
-    // console.log('albumId', this.albumId);
-
+    console.log('getInitData', this.getId);
     this.http
       .get(
-        'https://api.kkbox.com/v1.1/charts/DZni8m29ciOFbRxTJq/tracks?territory=TW&offset=0&limit=50',
+        `https://api.kkbox.com/v1.1/charts/${this.getId}/tracks?territory=TW&offset=0&limit=50`,
         {
           headers: {
             Authorization: `Bearer ` + this.token,
@@ -51,14 +55,13 @@ export class YoutubePageComponent implements OnInit {
       .subscribe((res) => {
         this.datas = [res];
         this.datas = this.datas[0].data;
-        console.log('res:', res);
         // this.getYTData();
         console.log('getInitData', this.datas);
       });
   };
 
-  getYTData = () => {
-    let name = 'DJ Khaled (DJ卡利)';
+  getYTData(name:string){
+    name = 'DJ Khaled (DJ卡利)';
     // youtubeKeyMain: AIzaSyCqiOvXgeO9u7AbLly294jjoZwZ3PFVKDs
     // youtubeKey: AIzaSyDqvzY_cP4_ZI5lKpnWrDWZZu6Gm2PzK74
     this.http

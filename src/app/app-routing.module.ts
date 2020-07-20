@@ -16,10 +16,11 @@ const routes: Routes = [
         redirectTo: 'home',
       }, /**空白會跳轉到home */
       { path: 'home', component: HomeComponent },
-      { path: 'youtubePage/:id', component: YoutubePageComponent },
-      // { path: 'page', component: PageComponent },
-      // { path: 'anther', component: AntherComponent },
-      // { path: 'contacts', component: ContactComponent },
+      //利用Service來存ID
+      { path: 'youtubePage', component: YoutubePageComponent },
+      //利用網址列的方式來存ID
+      // { path: 'youtubePage/:id', component: YoutubePageComponent },
+      
     ],
   },
   {

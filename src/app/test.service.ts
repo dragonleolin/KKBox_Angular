@@ -2,26 +2,32 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject, ReplaySubject } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import { HomeData } from './HomeData';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TestService {
-  getId = '123';
-  // albumId$ = new BehaviorSubject<string>(this.getId);
+ 
+  private getHomeData:HomeData ={
+    id: '',
+    title: '',
+  }
+  albumId$ = new BehaviorSubject<HomeData>(this.getHomeData);
 
-  constructor(private http: HttpClient) {
-    console.log('我重整了，不要拿我存狀態');
+  constructor(private http: HttpClient) {}
+
+  setAlbumId(id: string, title:string) {
+    const HomeData ={
+      id: id,
+      title: title
+    }
+    console.log('已設定', HomeData);
+    this.albumId$.next(HomeData);
+
   }
 
-  setAlbumId(id: string) {
-    this.getId = id;
-    console.log('已設定');
-  }
-
-  getAlbumId() {
-    return this.getId;
-  }
+  
 
   send() {
     this.http.get('http://127.0.0.1:3001/get').subscribe({

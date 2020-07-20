@@ -28,16 +28,16 @@ export class HomeComponent implements OnInit {
 
   datas: any[] = [];
 
-  onClickalbumId(id: string) {
-    this.testService.setAlbumId(id);
-    this.router.navigateByUrl('/youtubePage/?id=' + id);
-    //window.location.href="/youtubePage";
+  onClickalbumId(id: string, title:string) {
+    this.testService.setAlbumId(id, title);
+    this.router.navigateByUrl('/youtubePage');
+    //利用網址列的方式來存ID
+    // this.router.navigateByUrl('/youtubePage/?id=' + id);
   }
 
   //取得每周熱門歌曲排行封面
   getNewHitPlayLists = async () => {
     const token = this.testService.token;
-    // console.log(1, token);
     this.http
       .get('https://api.kkbox.com/v1.1/new-hits-playlists?territory=TW', {
         headers: {
