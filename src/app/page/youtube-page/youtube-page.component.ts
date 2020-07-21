@@ -13,10 +13,12 @@ export class YoutubePageComponent implements OnInit {
   token = this.testService.token;
   datas: any;
   YTId: any;
-  youtubeUrl: string = "https://www.youtube.com/embed/Fllk9zr9iM8";
+  youtubeUrl:string;
+  // youtubeUrl:string='https://www.youtube.com/embed/Fllk9zr9i';
   getId;
   getTitle;
   urlSafe: SafeResourceUrl;
+  safeUrl: any;
 
 
   constructor(
@@ -32,14 +34,10 @@ export class YoutubePageComponent implements OnInit {
       this.getTitle = res.title;
     });
     this.getInitData();
-    this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.youtubeUrl);
-
-
-  }
-
-  getHomeData(){
+    // this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.youtubeUrl);
 
   }
+
 
   getInitData = () => {
     console.log('getInitData', this.getId);
@@ -55,22 +53,39 @@ export class YoutubePageComponent implements OnInit {
       .subscribe((res) => {
         this.datas = [res];
         this.datas = this.datas[0].data;
-        // this.getYTData();
         console.log('getInitData', this.datas);
+        const name:string = this.datas[0].name;
+        console.log('RESname', name);
+        this.getYTData(name);
       });
   };
 
+  getSafeUrl(url){
+    this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+}
+
+
   getYTData(name:string){
     name = 'DJ Khaled (DJ卡利)';
+    this.YTId = 'Fllk9zr9iM8';
+    this.youtubeUrl = `https://www.youtube.com/embed/${this.YTId}`;
+    console.log('this.youtubeUrl:', this.youtubeUrl);
+    this.getSafeUrl(this.youtubeUrl);
+    // this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.youtubeUrl);
     // youtubeKeyMain: AIzaSyCqiOvXgeO9u7AbLly294jjoZwZ3PFVKDs
     // youtubeKey: AIzaSyDqvzY_cP4_ZI5lKpnWrDWZZu6Gm2PzK74
-    this.http
-      .get(
-        `https://www.googleapis.com/youtube/v3/search?key=AIzaSyDqvzY_cP4_ZI5lKpnWrDWZZu6Gm2PzK74&part=snippet&type=video&q=${name}`
-      )
-      .subscribe((res) => {
-        this.YTId = [res];
-        console.log('YTData:', this.YTId);
-      });
+    // this.http
+    //   .get(
+    //     `https://www.googleapis.com/youtube/v3/search?key=AIzaSyDqvzY_cP4_ZI5lKpnWrDWZZu6Gm2PzK74&part=snippet&type=video&q=${name}`
+    //   )
+    //   .subscribe((res) => {
+    //     this.YTId = [res];
+    //     this.YTId = this.YTId.data.items[0].id.videoId;
+    //     console.log('this.YTId:', this.YTId);
+    //     this.youtubeUrl = `https://www.youtube.com/embed/${this.YTId}`;
+    //     console.log('this.youtubeUrl:', this.youtubeUrl);
+
+
+    //   });
   };
 }
