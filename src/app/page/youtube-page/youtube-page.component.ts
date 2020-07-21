@@ -14,7 +14,6 @@ export class YoutubePageComponent implements OnInit {
   datas: any;
   YTId: any;
   youtubeUrl:string;
-  // youtubeUrl:string='https://www.youtube.com/embed/Fllk9zr9i';
   getId;
   getTitle;
   urlSafe: SafeResourceUrl;
@@ -34,8 +33,6 @@ export class YoutubePageComponent implements OnInit {
       this.getTitle = res.title;
     });
     this.getInitData();
-    // this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.youtubeUrl);
-    // this.getSafeUrl(this.youtubeUrl);
   }
 
 
@@ -75,8 +72,9 @@ export class YoutubePageComponent implements OnInit {
         console.log('res:', this.YTId);
         this.YTId = this.YTId[0].items[0].id.videoId;
         console.log('this.YTId:', this.YTId);
-        this.youtubeUrl = 'https://www.youtube.com/embed/'+ this.YTId;
-        console.log('this.youtubeUrl:', this.youtubeUrl);
+
+        // this.YTId= 'zx2rqHNC22A';
+        this.youtubeUrl = `https://www.youtube.com/embed/${this.YTId}`;
         this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.youtubeUrl);
 
       });
