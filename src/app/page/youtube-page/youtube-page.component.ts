@@ -35,7 +35,7 @@ export class YoutubePageComponent implements OnInit {
     });
     this.getInitData();
     // this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.youtubeUrl);
-
+    // this.getSafeUrl(this.youtubeUrl);
   }
 
 
@@ -50,42 +50,35 @@ export class YoutubePageComponent implements OnInit {
           },
         }
       )
-      .subscribe((res) => {
+      .subscribe(async (res) => {
         this.datas = [res];
         this.datas = this.datas[0].data;
         console.log('getInitData', this.datas);
         const name:string = this.datas[0].name;
         console.log('RESname', name);
-        this.getYTData(name);
+        await this.getYTData(name);
       });
   };
 
-  getSafeUrl(url){
-    this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-}
+  
 
 
   getYTData(name:string){
-    name = 'DJ Khaled (DJ卡利)';
-    this.YTId = 'Fllk9zr9iM8';
-    this.youtubeUrl = `https://www.youtube.com/embed/${this.YTId}`;
-    console.log('this.youtubeUrl:', this.youtubeUrl);
-    this.getSafeUrl(this.youtubeUrl);
-    // this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.youtubeUrl);
     // youtubeKeyMain: AIzaSyCqiOvXgeO9u7AbLly294jjoZwZ3PFVKDs
     // youtubeKey: AIzaSyDqvzY_cP4_ZI5lKpnWrDWZZu6Gm2PzK74
-    // this.http
-    //   .get(
-    //     `https://www.googleapis.com/youtube/v3/search?key=AIzaSyDqvzY_cP4_ZI5lKpnWrDWZZu6Gm2PzK74&part=snippet&type=video&q=${name}`
-    //   )
-    //   .subscribe((res) => {
-    //     this.YTId = [res];
-    //     this.YTId = this.YTId.data.items[0].id.videoId;
-    //     console.log('this.YTId:', this.YTId);
-    //     this.youtubeUrl = `https://www.youtube.com/embed/${this.YTId}`;
-    //     console.log('this.youtubeUrl:', this.youtubeUrl);
+    this.http
+      .get(
+        `https://www.googleapis.com/youtube/v3/search?key=AIzaSyCqiOvXgeO9u7AbLly294jjoZwZ3PFVKDs&part=snippet&type=video&q=${name}`
+      )
+      .subscribe((res) => {
+        this.YTId = [res];
+        console.log('res:', this.YTId);
+        this.YTId = this.YTId[0].items[0].id.videoId;
+        console.log('this.YTId:', this.YTId);
+        this.youtubeUrl = 'https://www.youtube.com/embed/'+ this.YTId;
+        console.log('this.youtubeUrl:', this.youtubeUrl);
+        this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.youtubeUrl);
 
-
-    //   });
+      });
   };
 }
