@@ -10,6 +10,7 @@ import { SiderbarComponent } from './component/siderbar/siderbar.component';
 import { HomeComponent } from './page/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { YoutubePageComponent } from './page/youtube-page/youtube-page.component';
+import { PlayerWidgetsComponent } from './page/player-widgets/player-widgets.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { YoutubePageComponent } from './page/youtube-page/youtube-page.component
     CarouselComponent,
     SiderbarComponent,
     HomeComponent,
-    YoutubePageComponent
+    YoutubePageComponent,
+    PlayerWidgetsComponent
   ],
   imports: [
     BrowserModule,

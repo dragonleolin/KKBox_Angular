@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './page/home/home.component';
 import { YoutubePageComponent } from './page/youtube-page/youtube-page.component';
+import { PlayerWidgetsComponent } from './page/player-widgets/player-widgets.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,7 @@ const routes: Routes = [
       { path: 'youtubePage', component: YoutubePageComponent },
       //利用網址列的方式來存ID
       // { path: 'youtubePage/:id', component: YoutubePageComponent },
-      
+      { path: 'playerWidgets', component: PlayerWidgetsComponent },
     ],
   },
   {

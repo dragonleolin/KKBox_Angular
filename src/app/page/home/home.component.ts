@@ -35,6 +35,11 @@ export class HomeComponent implements OnInit {
     // this.router.navigateByUrl('/youtubePage/?id=' + id);
   }
 
+  onClickToPlayWidgets(id: string, title:string) {
+    this.testService.setAlbumId(id, title);
+    this.router.navigateByUrl('/playerWidgets');
+  }
+
   //取得每周熱門歌曲排行封面
   getNewHitPlayLists = async () => {
     const token = this.testService.token;

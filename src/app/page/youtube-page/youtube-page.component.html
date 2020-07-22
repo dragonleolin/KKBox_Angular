@@ -9,7 +9,8 @@
             <div class="title">
                 {{this.getTitle}}
             </div>
-            <div class="singleSong" *ngFor="let data of datas; index as i">
+            <div class="singleSong" *ngFor="let data of datas; index as i"
+            (click)="getYTData(data.name)">
             <img src="{{data.album.images[0].url}}" alt="">
             <div class="text">
                 <h4>{{data.name}}</h4>

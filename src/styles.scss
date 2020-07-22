@@ -81,7 +81,18 @@ $phones-media:479px;
         .item{
             display: flex;
             flex-direction: column;
-            margin: 20px;
+            margin: 20px auto;
+            justify-content: space-between;
+            // align-items:center;
+            align-items: flex-start;
+            flex: 0 0 20%;
+
+            button{
+              border-radius: 50px;
+              background-color: rgb(179, 172, 176);
+              margin-bottom: 20px;
+            }
+
 
             h3{
               margin: 15px 0;
@@ -93,7 +104,7 @@ $phones-media:479px;
               font-size: $title;
               margin: 30px 0;
             }
-            
+
 
             img{
                 display: block;
@@ -112,14 +123,14 @@ $phones-media:479px;
 
   display: flex;
   flex-direction: row;
-  border: 1px solid #000000;
+  // border: 1px solid #000000;
   margin: 30px 0;
 
   .playContent{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    border: 1px solid #000000;
+    // justify-content: center;
+    // border: 1px solid #000000;
     iframe{
       min-height: 100%;
       min-width: 100%;
@@ -127,12 +138,12 @@ $phones-media:479px;
   }
   .songList{
     text-align: center;
-    border: 1px solid #000000;
-    // margin: 5px; 
+    // border: 1px solid #000000;
+    // margin: 5px;
     overflow-y: scroll;
     height: 700px;
     cursor: pointer;
-    
+
     .title{
       font-size: $title;
       color: $black;
@@ -140,7 +151,7 @@ $phones-media:479px;
     }
 
     img{
-      width: 80px; 
+      width: 80px;
       height: 80px;
     }
     .singleSong{

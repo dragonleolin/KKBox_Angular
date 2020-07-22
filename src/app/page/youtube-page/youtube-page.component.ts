@@ -57,7 +57,7 @@ export class YoutubePageComponent implements OnInit {
       });
   };
 
-  
+
 
 
   getYTData(name:string){
