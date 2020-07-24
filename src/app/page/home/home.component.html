@@ -4,10 +4,9 @@
       <!-- <app-carousel></app-carousel> -->
     </div>
     <div class="homeMain_wrap">
-      <h2 style="text-align: center; margin: 30px;">馬上到熱門歌單聽歌</h2>
+      <h2>馬上到熱門歌單聽歌</h2>
       <div class="playLists">
         <div class="item" *ngFor="let item of datas; index as i">
-          <button (click)="onClickToPlayWidgets(item.id, item.title)">連結到音樂撥放器</button>
           <div class="card"  (click)="onClickalbumId(item.id, item.title)">
             <div class="title">
               {{ item.title }}
@@ -15,6 +14,7 @@
             <img src="{{ item.images[0].url }}" alt="{{ item.description }}" />
             <h3>{{ item.description }}</h3>
           </div>
+          <button (click)="onClickToPlayWidgets(item.id, item.title)">連結到音樂撥放器</button>
 
         </div>
       </div>
