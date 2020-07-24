@@ -71,11 +71,16 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: center;
-  }
 
-  .navbar-brand{
-    font-size: $big_text;
-    color: #5bd8ff;
+      svg {
+      height: 80px;
+      width: 80px;
+      }
+
+      .navbar-brand{
+        font-size: $big_text;
+        color: #5bd8ff;
+      }
   }
 
 
@@ -127,7 +132,7 @@ header{
         align-items: flex-start;
       }
 
-      h3 {
+      h4 {
         margin: 15px 0;
         padding: 20px 10px;
       }
