@@ -9,26 +9,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+
+  albumId;
+  datas: any[] = [];
+  title;
+  playlistCategories: any[] = [];
+
   constructor(
     private testService: TestService,
     private http: HttpClient,
     private router: Router
   ) {}
   ngOnInit() {
-    // this.getData();
-    // console.log('123', this.getData());
     this.getNewHitPlayLists();
-    this.testService.getPlaylistCategories();
+    // this.testService.getPlaylistCategories();
+    // this.playlistCategories = this.testService.getPlaylistCategories();
+    // console.log('hometest', this.playlistCategories);
+    this.getPlaylistCategories();
   }
 
-  // getData(){
-  //   return this.testService.getNewHitPlayLists();
-  // }
 
-  albumId;
 
-  datas: any[] = [];
-  title;
+
 
   onClickalbumId(id: string, title:string) {
     this.testService.setAlbumId(id, title);
@@ -57,4 +59,23 @@ export class HomeComponent implements OnInit {
         console.log(' this.datas1', this.datas);
       });
   };
+
+
+  getPlaylistCategories(){
+    const token = this.testService.token;
+    this.http
+      .get('https://api.kkbox.com/v1.1/featured-playlist-categories/9XQKD8BJx595ESs_rb?territory=TW', {
+        headers: {
+          Authorization: `Bearer ` + token,
+        },
+      })
+      .subscribe((value) => {
+        this.playlistCategories = [value];
+        this.playlistCategories = this.playlistCategories[0].playlists.data;
+          console.log('getPlaylistCategories:', this.playlistCategories);
+
+        });
+  }
+
+
 }

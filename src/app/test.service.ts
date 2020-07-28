@@ -15,6 +15,10 @@ export class TestService {
   }
   albumId$ = new BehaviorSubject<HomeData>(this.getHomeData);
 
+  playlistCategories: any[] = [];
+
+
+
   constructor(private http: HttpClient) {}
 
   setAlbumId(id: string, title:string) {
@@ -83,11 +87,12 @@ export class TestService {
           Authorization: `Bearer ` + this.token,
         },
       })
-      .subscribe({
-        next(value) {
-          console.log('getPlaylistCategories:', value);
-        },
-      });
+      .subscribe((value) => {
+          this.playlistCategories = [value];
+          this.playlistCategories = this.playlistCategories[0].data;
+          console.log('getPlaylistCategories:', this.playlistCategories);
+
+        });
   }
 
   getYTData = () => {
