@@ -8,7 +8,7 @@ import { HomeData } from './HomeData';
   providedIn: 'root',
 })
 export class TestService {
- 
+
   private getHomeData:HomeData ={
     id: '',
     title: '',
@@ -27,7 +27,7 @@ export class TestService {
 
   }
 
-  
+
 
   send() {
     this.http.get('http://127.0.0.1:3001/get').subscribe({
@@ -43,8 +43,15 @@ export class TestService {
     });
   }
 
+
   getToken() {
-    this.http.get('http://127.0.0.1:3001/oauth2/token').subscribe((res) => {
+    this.http.get('https://account.kkbox.com/oauth2/token', {
+      headers: {
+        grant_type: 'client_credentials',
+        //             client_id: '99598334258d3f35aa01f439d81273c2',
+        //             client_secret: '8d4dd4b5143120c784fd9c22c888a5b7'
+      },
+    }).subscribe((res) => {
       console.log('getToken:', res);
     });
   }
@@ -68,6 +75,20 @@ export class TestService {
       });
     console.log('3');
   };
+
+  getPlaylistCategories(){
+    this.http
+      .get('https://api.kkbox.com/v1.1/featured-playlist-categories/9XQKD8BJx595ESs_rb?territory=TW', {
+        headers: {
+          Authorization: `Bearer ` + this.token,
+        },
+      })
+      .subscribe({
+        next(value) {
+          console.log('getPlaylistCategories:', value);
+        },
+      });
+  }
 
   getYTData = () => {
     this.http

@@ -11,10 +11,11 @@
             <div class="title">
               {{ item.title }}
             </div>
+            <button (click)="onClickToPlayWidgets(item.id, item.title)">連結到音樂撥放器</button>
             <img src="{{ item.images[0].url }}" alt="{{ item.description }}" />
-            <h4>{{ item.description }}</h4>
+            <div class="description">{{ item.description }}</div>
           </div>
-          <button (click)="onClickToPlayWidgets(item.id, item.title)">連結到音樂撥放器</button>
+
 
         </div>
       </div>

@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     // this.getData();
     // console.log('123', this.getData());
     this.getNewHitPlayLists();
+    this.testService.getPlaylistCategories();
   }
 
   // getData(){
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
   albumId;
 
   datas: any[] = [];
+  title;
 
   onClickalbumId(id: string, title:string) {
     this.testService.setAlbumId(id, title);
