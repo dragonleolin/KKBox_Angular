@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
     // this.testService.getPlaylistCategories();
     // this.playlistCategories = this.testService.getPlaylistCategories();
     // console.log('hometest', this.playlistCategories);
-    this.getPlaylistCategories();
+    // this.getPlaylistCategories();
   }
 
 
