@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FruitEGO": {
+    "KKBox_Angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -28,9 +28,12 @@
               "src/assets"
             ],
             "styles": [
+              "../node_modules/swiper/dist/css/swiper.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "../node_modules/swiper/dist/js/swiper.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -125,7 +128,7 @@
       }
     }
   },
-  "defaultProject": "FruitEGO",
+  "defaultProject": "KKBox_Angular",
   "cli": {
     "analytics": "99725f81-2aa1-40d2-aa0d-0a742e0c08ac"
   }
