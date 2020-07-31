@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TestService } from '../../test.service';
 import { HttpClient } from '@angular/common/http';
+declare const $:any;
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
@@ -10,9 +11,11 @@ export class CarouselComponent implements OnInit {
 
   playlistCategories: any[] = [];
 
+
   constructor(private testService: TestService, private http: HttpClient,) {}
   ngOnInit(): void {
     this.getPlaylistCategories();
+
   }
 
   getPlaylistCategories(){
@@ -30,6 +33,8 @@ export class CarouselComponent implements OnInit {
 
         });
   }
+
+
 
 
 

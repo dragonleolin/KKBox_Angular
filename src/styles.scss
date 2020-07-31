@@ -117,6 +117,7 @@ header{
       align-items: flex-start;
       flex: 0 0 20%;
 
+
       button {
         border-radius: 50px;
         // background-color: rgb(179, 172, 176);
@@ -137,6 +138,9 @@ header{
         cursor: pointer;
         display: flex;
         align-items: flex-start;
+        :hover {
+          opacity:0.5;
+          }
       }
       .title {
         display: flex;
