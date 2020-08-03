@@ -1,5 +1,5 @@
 {
-  "name": "fruit-ego",
+  "name": "KKBox_Angular",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -26,6 +26,7 @@
     "express": "^4.17.1",
     "json": "^9.0.6",
     "ngx-cookie-service": "^3.0.4",
+    "ngx-swiper-wrapper": "^9.0.1",
     "rxjs": "~6.5.4",
     "swiper": "^6.1.1",
     "tslib": "^1.10.0",
