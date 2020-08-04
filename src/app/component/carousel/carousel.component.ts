@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TestService } from '../../test.service';
 import { HttpClient } from '@angular/common/http';
+import Swiper, { Navigation, Pagination } from 'swiper';
 declare const $:any;
 @Component({
   selector: 'app-carousel',
@@ -12,9 +13,13 @@ export class CarouselComponent implements OnInit {
   playlistCategories: any[] = [];
 
 
+
   constructor(private testService: TestService, private http: HttpClient,) {}
   ngOnInit(): void {
     this.getPlaylistCategories();
+
+    console.log('test:', this.getPlaylistCategories);
+
 
   }
 
