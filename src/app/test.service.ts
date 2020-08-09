@@ -64,9 +64,9 @@ export class TestService {
   token = 'EyjKXVYDMXO3L_jnrCIsfQ==';
 
   //取得每周熱門歌曲排行封面
-  getNewHitPlayLists = async () => {
+  getNewHitPlayLists = () => {
     console.log(1, this.token);
-    await this.http
+   return this.http
       .get('https://api.kkbox.com/v1.1/new-hits-playlists?territory=TW', {
         headers: {
           Authorization: `Bearer ` + this.token,
@@ -74,10 +74,13 @@ export class TestService {
       })
       .subscribe({
         next(value) {
-          console.log('value', value);
+          this.datas = [value];
+          this.datas = this.datas[0].data;
+          console.log('test:', this.datas);
+          
+          // return this.datas;
         },
       });
-    console.log('3');
   };
 
   getPlaylistCategories(){

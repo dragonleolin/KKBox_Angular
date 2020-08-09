@@ -22,14 +22,10 @@ export class HomeComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.getNewHitPlayLists();
-    // this.testService.getPlaylistCategories();
-    // this.playlistCategories = this.testService.getPlaylistCategories();
-    // console.log('hometest', this.playlistCategories);
-    // this.getPlaylistCategories();
+    this.testService.getNewHitPlayLists();
+    console.log('home:',this.testService.getNewHitPlayLists());
+    
   }
-
-
-
 
 
   onClickalbumId(id: string, title:string) {
