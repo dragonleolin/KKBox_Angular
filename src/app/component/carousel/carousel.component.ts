@@ -8,36 +8,45 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./carousel.component.scss'],
 })
 export class CarouselComponent implements OnInit {
-
+  token = this.testService.token;
   playlistCategories: any[] = [];
+  featuredPlaylist: any[] = [];
 
-
-  constructor(private testService: TestService, private http: HttpClient,) {}
+  constructor(private testService: TestService, private http: HttpClient) {}
   ngOnInit(): void {
     this.getPlaylistCategories();
-
+    this.getFeaturedPlaylist();
   }
 
-
-
-  getPlaylistCategories(){
-    const token = this.testService.token;
+  getPlaylistCategories() {
     this.http
-      .get('https://api.kkbox.com/v1.1/featured-playlist-categories/9XQKD8BJx595ESs_rb?territory=TW', {
-        headers: {
-          Authorization: `Bearer ` + token,
-        },
-      })
+      .get(
+        'https://api.kkbox.com/v1.1/featured-playlist-categories/9XQKD8BJx595ESs_rb?territory=TW',
+        {
+          headers: {
+            Authorization: `Bearer ` + this.token,
+          },
+        }
+      )
       .subscribe((value) => {
         this.playlistCategories = [value];
         this.playlistCategories = this.playlistCategories[0].playlists.data;
-          console.log('getPlaylistCategories:', this.playlistCategories);
-
-        });
+        console.log('getPlaylistCategories:', this.playlistCategories);
+      });
   }
 
-
-
-
-
+  getFeaturedPlaylist() {
+    const token = this.testService.token;
+    this.http
+      .get('https://api.kkbox.com/v1.1/featured-playlist-categories?territory=TW&limit=10', {
+        headers: {
+          Authorization: `Bearer ` + this.token,
+        },
+      })
+      .subscribe((value) => {
+        this.featuredPlaylist = [value];
+        this.featuredPlaylist =  this.featuredPlaylist[0].data;
+        console.log('getFeaturedPlaylist:', this.featuredPlaylist);
+      });
+  }
 }
