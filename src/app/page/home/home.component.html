@@ -10,8 +10,10 @@
               {{ item.title }}
             </div>
             <button class="btn" (click)="onClickToPlayWidgets(item.id, item.title)">連結到音樂撥放器</button>
-            <img src="{{ item.images[0].url }}" alt="{{ item.description }}" />
-            <div class="description">{{ item.description }}</div>
+            <div class="toYU">
+              <img src="{{ item.images[0].url }}" alt="{{ item.description }}" />
+              <div class="description">{{ item.description }}</div>
+            </div>
           </div>
 
 
