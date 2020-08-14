@@ -49,7 +49,7 @@ export class TestService {
 
 
   getToken() {
-    this.http.get('https://account.kkbox.com/oauth2/token', {
+    return this.http.get('https://account.kkbox.com/oauth2/token', {
       headers: {
         grant_type: 'client_credentials',
         //             client_id: '99598334258d3f35aa01f439d81273c2',
@@ -72,34 +72,19 @@ export class TestService {
           Authorization: `Bearer ` + this.token,
         },
       })
-      .subscribe({
-        next(value) {
-          this.datas = [value];
-          this.datas = this.datas[0].data;
-          console.log('test:', this.datas);
-          
-          // return this.datas;
-        },
-      });
   };
 
   getPlaylistCategories(){
-    this.http
+    return this.http
       .get('https://api.kkbox.com/v1.1/featured-playlist-categories/9XQKD8BJx595ESs_rb?territory=TW', {
         headers: {
           Authorization: `Bearer ` + this.token,
         },
       })
-      .subscribe((value) => {
-          this.playlistCategories = [value];
-          this.playlistCategories = this.playlistCategories[0].data;
-          console.log('getPlaylistCategories:', this.playlistCategories);
-
-        });
   }
 
   getYTData = () => {
-    this.http
+    return this.http
       .get(
         'https://www.googleapis.com/youtube/v3/search?key=AIzaSyAta-bAGIsoa8etmOR7LKYprMhJdSNoRPE&part=snippet&type=video&q=[search]',
         {
