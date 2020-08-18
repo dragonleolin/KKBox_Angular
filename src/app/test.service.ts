@@ -33,9 +33,6 @@ export class TestService {
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-    this.getToken();
-  }
 
 
   send() {
@@ -53,7 +50,7 @@ export class TestService {
   }
 
   getToken() {
-    this.http.get('https://account.kkbox.com/oauth2/token', {
+    this.http.post('https://account.kkbox.com/oauth2/token', {
       headers: {
         grant_type: 'client_credentials',
         client_id: 'f51a9213d7860d8e6bcc5aee8439ca98',
@@ -80,6 +77,15 @@ export class TestService {
   getPlaylistCategories(){
     return this.http
       .get('https://api.kkbox.com/v1.1/featured-playlist-categories/9XQKD8BJx595ESs_rb?territory=TW', {
+        headers: {
+          Authorization: `Bearer ` + this.token,
+        },
+      })
+  }
+
+  getFeaturedPlaylist() {
+    return this.http
+      .get('https://api.kkbox.com/v1.1/featured-playlist-categories?territory=TW&limit=5', {
         headers: {
           Authorization: `Bearer ` + this.token,
         },

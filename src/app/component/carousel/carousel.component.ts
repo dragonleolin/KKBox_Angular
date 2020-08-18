@@ -18,31 +18,18 @@ export class CarouselComponent implements OnInit {
     this.getFeaturedPlaylist();
   }
 
-  getPlaylistCategories() {
-    this.http
-      .get(
-        'https://api.kkbox.com/v1.1/featured-playlist-categories/9XQKD8BJx595ESs_rb?territory=TW',
-        {
-          headers: {
-            Authorization: `Bearer ` + this.token,
-          },
-        }
-      )
-      .subscribe((value) => {
+  getPlaylistCategories(){
+    const token = this.testService.token;
+    this.testService.getPlaylistCategories().subscribe((value) => {
         this.playlistCategories = [value];
         this.playlistCategories = this.playlistCategories[0].playlists.data;
-        console.log('getPlaylistCategories:', this.playlistCategories);
-      });
+          console.log('getPlaylistCategories:', this.playlistCategories);
+        });
   }
 
+
   getFeaturedPlaylist() {
-    const token = this.testService.token;
-    this.http
-      .get('https://api.kkbox.com/v1.1/featured-playlist-categories?territory=TW&limit=10', {
-        headers: {
-          Authorization: `Bearer ` + this.token,
-        },
-      })
+    this.testService.getFeaturedPlaylist()
       .subscribe((value) => {
         this.featuredPlaylist = [value];
         this.featuredPlaylist =  this.featuredPlaylist[0].data;
