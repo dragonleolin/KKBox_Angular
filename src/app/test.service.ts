@@ -17,9 +17,9 @@ export class TestService {
 
   playlistCategories: any[] = [];
 
+  token = '7GUUFd6w1Jgz-j0wGVFElQ==';
 
 
-  constructor(private http: HttpClient) {}
 
   setAlbumId(id: string, title:string) {
     const HomeData ={
@@ -31,6 +31,11 @@ export class TestService {
 
   }
 
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.getToken();
+  }
 
 
   send() {
@@ -47,21 +52,19 @@ export class TestService {
     });
   }
 
-
   getToken() {
-    return this.http.get('https://account.kkbox.com/oauth2/token', {
+    this.http.get('https://account.kkbox.com/oauth2/token', {
       headers: {
         grant_type: 'client_credentials',
-        //             client_id: '99598334258d3f35aa01f439d81273c2',
-        //             client_secret: '8d4dd4b5143120c784fd9c22c888a5b7'
+        client_id: 'f51a9213d7860d8e6bcc5aee8439ca98',
+        client_secret: '75f63964dcfc50f48e77397515a7b19b'
       },
     }).subscribe((res) => {
       console.log('getToken:', res);
     });
   }
 
-  // token = 'a_V9cDy4Fm6yudjCRHN2cg==';
-  token = 'EyjKXVYDMXO3L_jnrCIsfQ==';
+
 
   //取得每周熱門歌曲排行封面
   getNewHitPlayLists = () => {
