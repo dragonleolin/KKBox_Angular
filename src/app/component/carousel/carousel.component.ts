@@ -11,6 +11,8 @@ export class CarouselComponent implements OnInit {
   token = this.testService.token;
   playlistCategories: any[] = [];
   featuredPlaylist: any[] = [];
+  itemsPerSlide = 5;
+  singleSlideOffset = true;
 
   constructor(private testService: TestService, private http: HttpClient) {}
   ngOnInit(): void {
@@ -19,7 +21,6 @@ export class CarouselComponent implements OnInit {
   }
 
   getPlaylistCategories(){
-    const token = this.testService.token;
     this.testService.getPlaylistCategories().subscribe((value) => {
         this.playlistCategories = [value];
         this.playlistCategories = this.playlistCategories[0].playlists.data;

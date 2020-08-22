@@ -91,6 +91,8 @@ header {
   }
 }
 
+
+
 .homeMain_wrap {
   @extend .linear;
   // border: 1px solid #000;
@@ -145,10 +147,10 @@ header {
       }
 
       .card {
-        
+
         display: flex;
         align-items: flex-start;
-        
+
         .title {
           display: flex;
           align-self: center;
@@ -188,7 +190,7 @@ header {
         }
 
       }
-     
+
     }
   }
 }
@@ -215,9 +217,9 @@ header {
     // margin: 5px;
     overflow-y: scroll;
     height: 700px;
-    
 
-   
+
+
 
     .title {
       font-size: $title;
@@ -247,10 +249,10 @@ header {
           0 0 20px rgba(255, 65, 65, 1), 0 0 40px rgba(255, 65, 65, 1);
         animation: neon-shine 2s linear infinite;
       }
-      
+
       .text {
         margin: auto;
-        
+
       }
 
     }

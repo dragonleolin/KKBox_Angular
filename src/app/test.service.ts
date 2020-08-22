@@ -76,7 +76,7 @@ export class TestService {
 
   getPlaylistCategories(){
     return this.http
-      .get('https://api.kkbox.com/v1.1/featured-playlist-categories/9XQKD8BJx595ESs_rb?territory=TW', {
+      .get('https://api.kkbox.com/v1.1/featured-playlist-categories/9XQKD8BJx595ESs_rb?territory=TW&limit=10', {
         headers: {
           Authorization: `Bearer ` + this.token,
         },
@@ -85,7 +85,7 @@ export class TestService {
 
   getFeaturedPlaylist() {
     return this.http
-      .get('https://api.kkbox.com/v1.1/featured-playlist-categories?territory=TW&limit=5', {
+      .get('https://api.kkbox.com/v1.1/featured-playlist-categories?territory=TW&limit=10', {
         headers: {
           Authorization: `Bearer ` + this.token,
         },

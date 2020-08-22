@@ -11,7 +11,7 @@ import { HomeComponent } from './page/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { YoutubePageComponent } from './page/youtube-page/youtube-page.component';
 import { PlayerWidgetsComponent } from './page/player-widgets/player-widgets.component';
-
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { PlayerWidgetsComponent } from './page/player-widgets/player-widgets.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CarouselModule.forRoot(),
   ],
   providers: [TestService], // 在providers中加入TestService
   bootstrap: [AppComponent]
