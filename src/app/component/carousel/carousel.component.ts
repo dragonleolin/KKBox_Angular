@@ -11,14 +11,16 @@ export class CarouselComponent implements OnInit {
   token = this.testService.token;
   playlistCategories: any[] = [];
   featuredPlaylist: any[] = [];
-  itemsPerSlide = 5;
+  itemsPerSlide = 6;
   singleSlideOffset = true;
+  noWrap = true;
 
   constructor(private testService: TestService, private http: HttpClient) {}
   ngOnInit(): void {
     this.getPlaylistCategories();
     this.getFeaturedPlaylist();
   }
+  
 
   getPlaylistCategories(){
     this.testService.getPlaylistCategories().subscribe((value) => {
