@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TestService } from '../../test.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carousel',
@@ -13,14 +14,20 @@ export class CarouselComponent implements OnInit {
   featuredPlaylist: any[] = [];
   itemsPerSlide = 6;
   singleSlideOffset = true;
-  noWrap = true;
+  noWrap = false;
 
-  constructor(private testService: TestService, private http: HttpClient) {}
+  constructor(private testService: TestService, private http: HttpClient, private router: Router) {}
   ngOnInit(): void {
     this.getPlaylistCategories();
     this.getFeaturedPlaylist();
   }
-  
+
+  onClickToPlayWidgets(id: string, title: string) {
+    console.log('carousel:', id , ' + ', title);
+
+    this.testService.setAlbumId(id, title);
+    this.router.navigateByUrl('/playerWidgets');
+  }
 
   getPlaylistCategories(){
     this.testService.getPlaylistCategories().subscribe((value) => {

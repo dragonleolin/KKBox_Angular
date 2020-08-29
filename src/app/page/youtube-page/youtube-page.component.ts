@@ -63,6 +63,7 @@ export class YoutubePageComponent implements OnInit {
   getYTData(name:string){
     // youtubeKeyMain: AIzaSyCqiOvXgeO9u7AbLly294jjoZwZ3PFVKDs
     // youtubeKey: AIzaSyDqvzY_cP4_ZI5lKpnWrDWZZu6Gm2PzK74
+	//googleAPI_Key: AIzaSyB67mLegDCvAYw7IEvrLBHCyOZ41Ekird4
     this.http
       .get(
         `https://www.googleapis.com/youtube/v3/search?key=AIzaSyCqiOvXgeO9u7AbLly294jjoZwZ3PFVKDs&part=snippet&type=video&q=${name}`
