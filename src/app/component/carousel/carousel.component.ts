@@ -14,7 +14,7 @@ export class CarouselComponent implements OnInit {
   featuredPlaylist: any[] = [];
   itemsPerSlide = 6;
   singleSlideOffset = true;
-  noWrap = false;
+  noWrap = true;
 
   constructor(private testService: TestService, private http: HttpClient, private router: Router) {}
   ngOnInit(): void {
