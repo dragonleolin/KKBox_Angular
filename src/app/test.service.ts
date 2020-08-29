@@ -65,7 +65,7 @@ export class TestService {
 
   //取得每周熱門歌曲排行封面
   getNewHitPlayLists = () => {
-    console.log(1, this.token);
+    // console.log(1, this.token);
    return this.http
       .get('https://api.kkbox.com/v1.1/new-hits-playlists?territory=TW', {
         headers: {
@@ -103,7 +103,7 @@ export class TestService {
         }
       )
       .subscribe((res) => {
-        console.log(5, res);
+        // console.log(5, res);
       });
   };
 }

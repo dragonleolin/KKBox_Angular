@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
     this.testService.getNewHitPlayLists().subscribe((value) => {
       this.datas = [value];
       this.datas = this.datas[0].data;
-      console.log(' this.datas1', this.datas);
+      // console.log(' this.datas1', this.datas);
     });
   };
 }
