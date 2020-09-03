@@ -4,8 +4,11 @@ body {
   background-image: url("./assets/bg.png");
 }
 #main {
+  display: flex;
+  flex-direction: column;
   .carousel-inner {
-    height: 200px;
+    height: 300px;
+    max-width: 1920;
   }
 }
 
@@ -90,6 +93,12 @@ header {
     }
   }
 }
+
+footer{
+  height: 100px;
+  // background-color: #674ea7;
+}
+
 
 .carousel {
   margin-top: 20px;

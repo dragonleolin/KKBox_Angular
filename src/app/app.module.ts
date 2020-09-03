@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { YoutubePageComponent } from './page/youtube-page/youtube-page.component';
 import { PlayerWidgetsComponent } from './page/player-widgets/player-widgets.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     SiderbarComponent,
     HomeComponent,
     YoutubePageComponent,
-    PlayerWidgetsComponent
+    PlayerWidgetsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
