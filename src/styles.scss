@@ -76,6 +76,9 @@ header {
   background-color: #674ea7;
   opacity: 0.6;
   cursor: pointer;
+  @include phone-width {
+    min-height: 10vh;
+  }
 
   .navbar {
     display: flex;
@@ -85,6 +88,18 @@ header {
     svg {
       height: 80px;
       width: 80px;
+      @include pad-width{
+        height: 70px;
+        width: 70px;
+      }
+      @include small-pad-width {
+        height: 70px;
+      width: 70px;
+      }
+      @include phone-width {
+        height: 50px;
+        width: 50px;
+      }
     }
 
     .navbar-brand {
@@ -311,17 +326,49 @@ header {
 .youtubeLists {
   display: flex;
   flex-direction: row;
+  max-height: 1024px;
   // border: 1px solid #000000;
-  margin: 30px 0;
+  margin: 15px 0;
+  @include pad-width{
+    display: flex;
+    flex-direction: column;
+    max-height: 1024px;
+  }
+  @include small-pad-width {
+    display: flex;
+    flex-direction: column;
+  }
+  @include phone-width {
+    display: flex;
+    flex-direction: column;
+  }
 
   .playContent {
     display: flex;
     flex-direction: column;
     // justify-content: center;
-    // border: 1px solid #000000;
+    border: 1px solid #000000;
     iframe {
       min-height: 100%;
       min-width: 100%;
+      @include pad-width{
+        display: flex;
+        flex-direction: column;
+        max-height: 70%;
+        max-width: 70%;
+      }
+      @include small-pad-width {
+        display: flex;
+        flex-direction: column;
+        max-height: 70%;
+        max-width: 70%;
+      }
+      @include phone-width {
+        display: flex;
+        flex-direction: column;
+        max-height: 50%;
+        max-width: 50%;
+      }
     }
   }
   .songList {
@@ -337,6 +384,10 @@ header {
       text-shadow: 0 0 5px rgba(67, 232, 216, 1), 0 0 10px rgba(67, 232, 216, 1),
         0 0 20px rgba(67, 232, 216, 1), 0 0 40px rgba(67, 232, 216, 1);
       animation: neon-shine 2s linear infinite;
+      @include phone-width {
+        
+        font-size: 24px;
+      }
     }
 
     img {
@@ -361,6 +412,12 @@ header {
 
       .text {
         margin: auto;
+        h4{
+          @include phone-width {
+           font-family:Microsoft JhengHei;
+           font-size: 18px;
+          }
+        }
       }
     }
   }
