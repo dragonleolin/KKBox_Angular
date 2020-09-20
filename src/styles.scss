@@ -243,9 +243,9 @@ header {
         display: flex;
         align-items: flex-start;
 
+        text-align: center;
+
         .title {
-          display: flex;
-          align-self: center;
           font-size: 16px;
           margin-top: 20px;
           text-shadow: 0 0 5px rgba(67, 232, 216, 1),
@@ -346,6 +346,7 @@ header {
   .playContent {
     display: flex;
     flex-direction: column;
+    width: 100%;
     // justify-content: center;
     border: 1px solid #000000;
     iframe {
@@ -385,7 +386,7 @@ header {
         0 0 20px rgba(67, 232, 216, 1), 0 0 40px rgba(67, 232, 216, 1);
       animation: neon-shine 2s linear infinite;
       @include phone-width {
-        
+
         font-size: 24px;
       }
     }
