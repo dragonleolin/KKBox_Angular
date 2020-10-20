@@ -93,6 +93,7 @@ $phones-media: 479px;
   .menu{
     display: flex;
     align-items: center;
+    text-align: center;
      @include phone-width {
       font-size: 16px;
     }
@@ -261,9 +262,11 @@ footer{
 
 
         .title {
-          // text-align: center;
+          text-align: center;
           font-size: 18px;
-          padding-top: 20px;
+          padding: 20px 15px 0 15px;
+          overflow: hidden;
+          white-space: nowrap;
           // margin-top: 20px;
           // margin: 30px auto;
           text-shadow: 0 0 5px rgba(67, 232, 216, 1),
