@@ -72,18 +72,34 @@ $phones-media: 479px;
   box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.6) !important;
 }
 
-header {
+.header {
   background-color: #674ea7;
   opacity: 0.6;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
   @include phone-width {
     min-height: 10vh;
   }
 
-  .navbar {
+  a{
+    font-size: $big_text;
+    color: #5bd8ff;
+    text-shadow: 0 0 5px #5bd8ff, 0 0 10px #5bd8ff, 0 0 20px #5bd8ff,
+      0 0 40px #5bd8ff;
+    animation: neon-shine 2s linear infinite;
+  }
+
+  .menu{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    align-items: center;
+    li{
+      padding: 30px;
+    }
+  }
+
+
+  .navbar {
 
     svg {
       height: 80px;
@@ -101,25 +117,20 @@ header {
         width: 50px;
       }
     }
-
-    .navbar-brand {
-      font-size: $big_text;
-      color: #5bd8ff;
-      text-shadow: 0 0 5px #5bd8ff, 0 0 10px #5bd8ff, 0 0 20px #5bd8ff,
-        0 0 40px #5bd8ff;
-      animation: neon-shine 2s linear infinite;
-    }
   }
+
+
 }
 
-.footer{
+footer{
   border: 1px solid #000;
-  position: absolute;
-  margin-top:-50px;
-  bottom: 0px;
-  width: 100%;
-  height: 100px;
+  height: 80px;
   // background-color: #674ea7;
+  p{
+    // text-align: center;
+    line-height: 20px;
+    margin-top: 20px;
+  }
 }
 
 

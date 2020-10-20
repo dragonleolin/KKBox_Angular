@@ -1,6 +1,6 @@
-<header (click)="backToHome()">
-  <nav class="navbar" >
-    <div class="navbar-brand">KKBOX_隨心聽音樂</div>
+<div class="header" (click)="backToHome()">
+  <nav class="navbar">
+    <a>KKBOX_隨心聽音樂</a>
     <svg class="headphones" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1122 1122">
       <path fill="#cecfd1" d="M822 913l-27-13c122-248 110-370 110-371v-2a330 330 0 00-329-329h-30a330 330 0 00-329 329v2s-3 31 9 92c20 101 66 208 101 279l-27 13C178 666 185 539 186 526a360 360 0 01360-359h30a360 360 0 01360 359c1 13 8 140-114 387z"/>
       <path fill="#92CCC3" d="M277 754a31 31 0 00-12 40l65 140a31 31 0 0037 16l-89-194-1-2z"/>
@@ -53,4 +53,7 @@
       </g>
     </svg>
   </nav>
-</header>
+  <ul class="menu">
+    <li><a (click)="goToTalk()">我想對妳說</a></li>
+  </ul>
+</div>

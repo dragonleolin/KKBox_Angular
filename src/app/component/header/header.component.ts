@@ -17,6 +17,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/');
   }
 
-
+  goToTalk(){
+    this.router.navigateByUrl('talk');
+  }
 
 }

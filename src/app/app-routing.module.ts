@@ -22,6 +22,11 @@ const routes: Routes = [
       //利用網址列的方式來存ID
       // { path: 'youtubePage/:id', component: YoutubePageComponent },
       { path: 'playerWidgets', component: PlayerWidgetsComponent },
+      // {
+      //   path: "talk",
+      //   loadChildren: () =>
+      //     import("./page/checkout/checkout.module").then((m) => m.CheckoutModule),
+      // },
     ],
   },
   {
