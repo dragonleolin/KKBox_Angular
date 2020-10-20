@@ -18,6 +18,8 @@ export class HeaderComponent implements OnInit {
   }
 
   goToTalk(){
+    console.log('goToTalk');
+
     this.router.navigateByUrl('talk');
   }
 
