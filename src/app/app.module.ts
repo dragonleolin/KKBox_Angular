@@ -13,6 +13,7 @@ import { YoutubePageComponent } from './page/youtube-page/youtube-page.component
 import { PlayerWidgetsComponent } from './page/player-widgets/player-widgets.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { FooterComponent } from './component/footer/footer.component';
+import { TalkPageComponent } from './page/talk-page/talk-page.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FooterComponent } from './component/footer/footer.component';
     HomeComponent,
     YoutubePageComponent,
     PlayerWidgetsComponent,
-    FooterComponent
+    FooterComponent,
+    TalkPageComponent
   ],
   imports: [
     BrowserModule,
