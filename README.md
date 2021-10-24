@@ -8,6 +8,18 @@
 
 要啟動node Serve: node dummyService.js
 
+
+## 取得KKBOX金鑰
+1. 先到 https://developer.kkbox.com/#/app/2baf92a56f079e9010739de2aef0dfda 取得 ID 跟 Secret
+2. 使用POSTMAN用POST打API(https://account.kkbox.com/oauth2/token) 
+3. 用x-www-form-urlencoded
+{
+  'grant_type': 'client_credentials',
+  'client_id': '2baf92a56f079e9010739de2aef0dfda',
+  'client_secret': '60bc0c944b6ba4a7adbefa67a6e28b16'
+};
+4. 取回 access_token
+
 ## 跳轉頁面都要使用Router去做跳轉，因為Angular是SPA的結構，要好好善用Router，若用重新刷新會有存取資料消失的問題。
 
 ### 直接跳轉頁面

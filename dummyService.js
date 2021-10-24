@@ -102,7 +102,7 @@ app.use(cors(corsOptions));
 //             console.log(error);
 //         })
 
-const token = 'a_V9cDy4Fm6yudjCRHN2cg=='
+const token = '1LjvpR8neL3zawlLQRJ0PQ=='
 
 app.post('/post', function (req, res, next) {
 
