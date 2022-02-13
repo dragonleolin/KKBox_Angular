@@ -1,1 +1,5 @@
-<p>siderbar works!</p>
+<div [ngClass]="getBlueClass()" (scroll)="onElementScroll($event)">
+    <ul class="kvList">
+        <li *ngFor="let n of total" [ngStyle]="img(n)" ></li>
+    </ul>
+</div>

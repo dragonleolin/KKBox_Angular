@@ -17,7 +17,7 @@ export class TestService {
 
   playlistCategories: any[] = [];
 
-  token = '1LjvpR8neL3zawlLQRJ0PQ==';
+  token = '0VaEc9m8GKi4ur2URzYgHA==';
 
 
 

@@ -50,3 +50,9 @@ this.router.navigateByUrl('/youtubePage');
 3. 在constructor()加入public sanitizer: DomSanitizer
 4. 在ngOnInit()設定this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.youtubeUrl);
 5. 在畫面上加入 <iframe [src]="urlSafe"></iframe>
+
+## 新增區塊跟LINE官網一樣淡入的背景
+
+### 使用ngClass 跟 ngStyle的方式綁定， 寫在siderbar的component
+
+
