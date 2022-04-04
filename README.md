@@ -22,9 +22,11 @@
 5. 更換鑰匙要到test.sercice.ts去修改
 
 ## Github pages
-參考網誌 :https://dragonleolin.medium.com/%E6%8A%8Aangular%E5%B0%88%E6%A1%88%E6%94%BE%E5%88%B0github-pages-3b4b54
-1. 終端機輸入 npx ngh --dir=dist/KKBox_Angular
-2. npx ngh --dir=dist/FruitEGO
+參考網誌 : https://dragonleolin.medium.com/%E6%8A%8Aangular%E5%B0%88%E6%A1%88%E6%94%BE%E5%88%B0github-pages-3b4b5433bf34
+
+
+1. 建立gh-pages路徑: ng build --prod --base-href /KKBox_Angular/
+2. 推上分支: npx ngh --dir=dist/FruitEGO
 
 ## 跳轉頁面都要使用Router去做跳轉，因為Angular是SPA的結構，要好好善用Router，若用重新刷新會有存取資料消失的問題。
 
